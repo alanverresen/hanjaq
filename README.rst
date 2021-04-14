@@ -2,6 +2,10 @@
 hanjaq 0.0.3
 ##############################################################################
 
+.. image:: https://travis-ci.com/alanverresen/hanjaq.svg?branch=master
+    :target: https://travis-ci.com/alanverresen/hanjaq
+    :alt:
+
 This Python package can be used to get information about Hanja characters:
 
 - the possible meanings of a Hanja character
