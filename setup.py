@@ -42,7 +42,7 @@ setup(
 
     name="hanjaq",
     url="https://github.com/alanverresen/hanjaq",
-    version="0.0.3",
+    version="0.0.4",
     python_requires=">=3.7",
     license="MIT",
 
