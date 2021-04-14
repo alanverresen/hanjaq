@@ -16,27 +16,27 @@ This Python package can be used to get information about Hanja characters:
 Features
 ==============================================================================
 
-Import and use the function `get_hanja_information(character)` to retrieve
-information about a Hanja character. This function returns a tuple that
-contains the possible Hangul representation(s) of a Hanja character, and the
-meaning(s) of the Hanja character.
+Import and use the function `get_hanja_information()` to retrieve information
+about a Hanja character. This function returns a tuple that contains the
+possible Hangul representation(s) of a Hanja character, and the meaning(s) of
+the Hanja character.
 
 .. code-block:: python
 
     >>> from hanjaq import get_hanja_information
     >>> get_hanja_information("字")
-    ("자", "character, letter")
+    (["자"], "character, letter")
 
 
 Not all Hanja characters are currently supported, only the 1800 most common
-ones. A tuple of empty strings is returned if the Hanja character is not
-recognized.
+ones. A tuple with an empty list and an empty string is returned if the Hanja
+character is not recognized.
 
 .. code-block:: python
 
     >>> from hanjaq import get_hanja_information
     >>> get_hanja_information("譎")
-    ("", "")
+    ([], "")
 
 
 ==============================================================================
