@@ -64,6 +64,14 @@ def test_extract_information_from_line__failure_malformed_hanja_field():
         _extract_information_from_line(d, "\t".join(["aa", "b", "c"]))
 
 
+def test_extract_information_from_line__failure_malformed_hangul_field():
+    """ Test that exception is raised when Hangul field is malformed.
+    """
+    d = {}
+    with pytest.raises(DictionaryProblem):
+        _extract_information_from_line(d, "\t".join(["a", "bc", "d"]))
+
+
 def test_extract_information_from_line__failure_familiar_hanja():
     """ Test that exception is raised when the same Hanja character is
         added a second time.

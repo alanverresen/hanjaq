@@ -29,7 +29,7 @@ The following changes are planned to happen in the future:
 - Nothing planned at the moment.
 
 
-0.0.3 - 2021-04-15
+0.0.4 - 2021-04-15
 ------------------
 
 PROJECT
