@@ -16,18 +16,18 @@ def test_get_hanja_information_success_known_character():
     """ Tests that we can determine the meaning and hangul representation
         of a Hanja character.
     """
-    d = {"漢": ("한", "<meaning>")}
+    d = {"漢": (["한"], "<meaning>")}
     with mock.patch("hanjaq.hanja.build_hanja_dict", return_value=d):
-        assert get_hanja_information("漢") == ("한", "<meaning>")
+        assert get_hanja_information("漢") == (["한"], "<meaning>")
 
 
 def test_identify_hanja_success_unknown_character():
     """ Tests that empty strings are returned in the case of an uncommon
         Hanja character that is not supported.
     """
-    d = {"漢": ("한", "<meaning>")}
+    d = {"漢": (["한"], "<meaning>")}
     with mock.patch("hanjaq.hanja.build_hanja_dict", return_value=d):
-        assert get_hanja_information("卿") == ("", "")
+        assert get_hanja_information("卿") == ([], "")
 
 
 def test_identify_hanja__exception_not_a_single_character():

@@ -65,9 +65,19 @@ def _extract_information_from_line(hanja_dict, line):
     :param str line: line containing information about Hanja character
     """
     (hanja_field, hangul_field, meaning_field) = line.split("\t")
+
+    hangul_representations = []
+    for hangul_ch in hangul_field.split("/"):
+        if len(hangul_ch) != 1:
+            msg = "Hangul field isn't properly formatted; line: {}"
+            raise DictionaryProblem(msg.format(line))
+        hangul_representations.append(hangul_ch)
+
     for hanja_ch in hanja_field.split("/"):
         if not len(hanja_ch) == 1:
-            raise DictionaryProblem("")  # todo
+            msg = "Hanja field isn't properly formatted; line: {}"
+            raise DictionaryProblem(msg.format(line))
         if hanja_ch in hanja_dict.keys():
-            raise DictionaryProblem("")  # todo
-        hanja_dict[hanja_ch] = (hangul_field, meaning_field)
+            msg = "Tried to add the same hanja character '{}' twice."
+            raise DictionaryProblem(msg.format(hanja_ch))
+        hanja_dict[hanja_ch] = (hangul_representations, meaning_field)

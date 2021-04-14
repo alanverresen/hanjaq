@@ -7,6 +7,10 @@ What is hanjaq?
 -------------------------------------------------------------------------------
 
 
+
+This package was originally created to help with the programmatic creation of
+Anki decks in which Hanja was used as a supportive tool.
+
 -------------------------------------------------------------------------------
 Installation
 -------------------------------------------------------------------------------

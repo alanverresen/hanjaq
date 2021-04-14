@@ -15,7 +15,7 @@ def test_extract_information_from_line__success_single_hanja():
     d = {}
     _extract_information_from_line(d, "\t".join(["a", "b", "c"]))
     assert "a" in d.keys()
-    assert d["a"] == ("b", "c")
+    assert d["a"] == (["b"], "c")
 
 
 def test_extract_information_from_line__success_multiple_hanja():
@@ -25,9 +25,19 @@ def test_extract_information_from_line__success_multiple_hanja():
     d = {}
     _extract_information_from_line(d, "\t".join(["a/b", "c", "d"]))
     assert "a" in d.keys()
-    assert d["a"] == ("c", "d")
+    assert d["a"] == (["c"], "d")
     assert "b" in d.keys()
-    assert d["b"] == ("c", "d")
+    assert d["b"] == (["c"], "d")
+
+
+def test_extract_information_from_line__success_multiple_hangul():
+    """ Test that fields are correctly parsed and stored when the Hangul field
+        contains multiple Hangul representations separated by /.
+    """
+    d = {}
+    _extract_information_from_line(d, "\t".join(["a", "b/c", "d"]))
+    assert "a" in d.keys()
+    assert d["a"] == (["b", "c"], "d")
 
 
 def test_extract_information_from_line__failure_too_few_fields():

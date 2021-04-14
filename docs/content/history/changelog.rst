@@ -29,6 +29,20 @@ The following changes are planned to happen in the future:
 - Nothing planned at the moment.
 
 
+0.0.3 - 2021-04-15
+------------------
+
+PROJECT
+~~~~~~~
+- Added support for Python 3.9.
+- Dropped support for Python 3.6.
+
+CHANGED
+~~~~~~~
+- Changed `get_hanja_information()` to return list of hangul representations
+  instead of a string.
+
+
 0.0.1 - 2020-06-05
 ------------------
 
@@ -49,4 +63,3 @@ PROJECT
 ~~~~~~~
 - New project was started on this date.
 - Started repository on GitHub.
-

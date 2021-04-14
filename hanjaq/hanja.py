@@ -30,12 +30,12 @@ def get_hanja_information(ch):
     """ Returns Hangul representation and meaning of a known Hanja character.
 
     If the Hanja character is not recognized, this function returns a tuple
-    containing empty strings. If it is not a Hanja character, an exception is
-    raised.
+    with an empty list for Hangul representations, and an empty string as
+    its meaning. If it is not a Hanja character, an exception is raised.
 
     :param str ch: a hanja character as a string of length 1
 
-    :rtype: (str, str)
+    :rtype: ([str], str)
     :return: Hangul representation and meaning of Hanja character
 
     :raise NotASingleCharacter: argument was not a single character
@@ -44,4 +44,4 @@ def get_hanja_information(ch):
     if not is_hanja(ch):
         msg = "Expected a Hanja character: {}"
         raise NotAHanjaCharacter(msg.format(ch))
-    return build_hanja_dict().get(ch, ("", ""))
+    return build_hanja_dict().get(ch, ([], ""))
